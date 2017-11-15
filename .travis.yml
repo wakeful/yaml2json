@@ -1,0 +1,20 @@
+language: go
+go:
+- 1.9
+script: go vet
+before_deploy:
+  - ./release.sh
+deploy:
+  provider: releases
+  api_key:
+    secure: RlQiObeqhf2U1S/GkXPi5f5rjCBWnjXVxPrXZDSf5SPjpWqpTS0PldAq9GuMfxfs7Bvy3MCSoYZFr208ljTAmXM/ABlOvJaRRSnyUNpC9bLdnUeOSUBwxR4ct6x8BIKqUdgsbMaa4PKdzAtKCvYlzTRZpPat/kQsij11Z6VcUGlogwetl0rPvLfwilHdQrWFJwbFwLHEHEb+gdB5XnmY20JiA1Uu2LvZTrtA8Fm0l6QoC5+ABsJscTvChdMUa+77nQF0QktnhJwDuOCnw3MCK+pM2T1NbG7zwfsbMGXD6JTpXf4vrUnkMia1B1vjn7cWh+q65tZ5k9IV3gwmjQWNGwE3L+TtgiifngzU7j6onioNKZ+h6V7SbJHElos2RVCAl+tx+izqGG9JHhO8Ptz7gc8gr5TzWqB7FuZKUHMFrqXZD6LmhY6B/9B45MC/R5OVKo9VRbqpIVpL4VTxr4Iunws/L5wb7od4xJhA3xrTdKd6HiCacoAKp5G3LHguVca1d+c8HLzyIE7DxH9R9AWUgOuYbfHO/mwDtm1yf3Nzlv/H/4LPmWmWO2S4DUA49sfYyTJa8LuKvrLC+A37CifLm+jwvHiEsR3A5l31fXGwOyzYE1/3Bo7b1j4BWiOHHytR/xxU6FDgdy7MfULFZr3n9WagVRPzkVNM3ZhnrswfKS0=
+  skip_cleanup: true
+  file:
+    - release/yaml2json-darwin-amd64
+    - release/yaml2json-darwin-amd64.sha256
+    - release/yaml2json-linux-amd64
+    - release/yaml2json-linux-amd64.sha256
+  on:
+    repo: wakeful/yaml2json
+    branch: master
+    tags: true
