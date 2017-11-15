@@ -1,2 +1,3 @@
-*.yml
+.idea/
 out/
+release/
