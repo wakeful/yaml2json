@@ -3,7 +3,7 @@ set -e
 
 VERSION=$(git describe --tags --dirty)
 GO_BUILD_CMD="go build -a -installsuffix cgo"
-GO_BUILD_LDFLAGS="-s -w"
+GO_BUILD_LDFLAGS="-s -w -X main.version=$VERSION"
 
 BUILD_PLATFORMS="linux darwin"
 BUILD_ARCHS="amd64"
