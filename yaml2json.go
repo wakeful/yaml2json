@@ -1,9 +1,10 @@
 package main
 
 import (
+	"github.com/go-yaml/yaml"
+
 	"encoding/json"
 	"fmt"
-	"github.com/go-yaml/yaml"
 	"log"
 )
 
