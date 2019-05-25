@@ -3,7 +3,7 @@ go:
 - 1.12
 script: go vet
 before_deploy:
-  - ./release.sh
+- ./release.sh
 deploy:
   provider: releases
   api_key:
