@@ -21,7 +21,7 @@ func main() {
 
 	if *showVersion {
 		fmt.Printf("yaml2json\n url: %s\n version: %s\n", url, version)
-		os.Exit(2)
+		os.Exit(0)
 	}
 
 	input, err := readInput()
