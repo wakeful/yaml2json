@@ -1,45 +1,37 @@
 package main
 
 import (
-	"github.com/go-yaml/yaml"
-
-	"encoding/json"
 	"flag"
 	"fmt"
 	"log"
 	"os"
+
+	"github.com/wakeful/yaml2json/pkg/parse"
 )
 
 var (
 	showVersion = flag.Bool("version", false, "show version and exit")
-	url         = "https://github.com/wakeful/yaml2json"
 	version     = "dev"
 )
 
 func main() {
 	flag.Parse()
 
+	const url = "https://github.com/wakeful/yaml2json"
 	if *showVersion {
 		fmt.Printf("yaml2json\n url: %s\n version: %s\n", url, version)
 		os.Exit(0)
 	}
 
-	input, err := readInput()
-
+	input, err := parse.ReadInput()
 	if err != nil {
-		fmt.Println(err)
-		fmt.Println()
-		printHelp()
+		log.Fatal(err)
 	}
 
-	var content interface{}
-	if err = yaml.Unmarshal([]byte(input), &content); err != nil {
-		log.Fatalln(err)
+	output, err := parse.ByteSliceToJSON(input)
+	if err != nil {
+		log.Fatal(err)
 	}
 
-	if content, err := json.Marshal(decode(content)); err != nil {
-		log.Fatalln(err)
-	} else {
-		fmt.Println(string(content))
-	}
+	fmt.Println(output)
 }
