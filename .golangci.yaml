@@ -1,11 +1,30 @@
 linters:
   enable-all: true
   disable:
-    - forbidigo
-    - funlen
+    - deadcode
+    - exhaustivestruct
+    - exhaustruct
+    - golint
+    - ifshort
+    - interfacer
     - lll
-    - gochecknoglobals
+    - maligned
+    - nosnakecase
     - paralleltest
     - scopelint
+    - structcheck
     - testpackage
-    - varnamelen
+    - varcheck
+issues:
+  exclude-rules:
+    - path: _test.go
+      linters:
+        - funlen
+        - varnamelen
+linters-settings:
+  depguard:
+    rules:
+      main:
+        allow:
+          - $gostd
+          - github.com/wakeful/yaml2json/pkg/parse

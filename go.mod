@@ -1,5 +1,5 @@
 module github.com/wakeful/yaml2json
 
-go 1.19
+go 1.22
 
-require gopkg.in/yaml.v2 v2.4.0
+require gopkg.in/yaml.v3 v3.0.1

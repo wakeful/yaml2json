@@ -116,6 +116,7 @@ bar:
 
 				return
 			}
+
 			if got != tt.want {
 				t.Errorf("ByteSliceToJSON() got = %v, want %v", got, tt.want)
 			}

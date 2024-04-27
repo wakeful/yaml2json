@@ -9,12 +9,10 @@ import (
 	"github.com/wakeful/yaml2json/pkg/parse"
 )
 
-var (
-	showVersion = flag.Bool("version", false, "show version and exit")
-	version     = "dev"
-)
+var version = "dev"
 
 func main() {
+	showVersion := flag.Bool("version", false, "show version and exit")
 	flag.Parse()
 
 	const url = "https://github.com/wakeful/yaml2json"
